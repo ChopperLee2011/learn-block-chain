@@ -24,7 +24,7 @@ contract Todo {
     function createTask(string calldata _text) external {
         require(bytes(_text).length > 0, "Task text cannot be empty");
 
-        uint taskId = todos.length - 1;
+        uint taskId = todos.length;
         Task memory task = Task({
             status: Status.Pending,
             text: _text,
@@ -49,5 +49,9 @@ contract Todo {
         require(idx < todos.length, "Task index out of bounds");
         todos[idx].status = _status;
         emit TaskLog(idx, msg.sender, _status);
+    }
+
+    function getTodos() external view returns (Task[] memory) {
+        return todos;
     }
 }

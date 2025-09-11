@@ -36,7 +36,6 @@ const config: HardhatUserConfig = {
       accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
     },
   },
-  defaultNetwork: "hardhatMainnet",
 };
 
 export default config;
