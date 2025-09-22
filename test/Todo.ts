@@ -37,6 +37,6 @@ describe("Todo", () => {
   it("should able to remove task", async () => {
     await todo.createTask("working on the todo.removeTask");
     await todo.removeTask(0);
-    await expect(todo.todos(0)).to.be.revert;
+    await expect(todo.todos(0)).to.revert(ethers);
   });
 });
